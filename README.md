@@ -11,7 +11,7 @@ Projek akhir ini digunakan untuk memprediksi harga emas berdasarkan beberapa kat
 1. Indikator harga emas kemarin
 
 ## Link Colab
-Untuk hasil yang lebih lengkap terkait evaluasi skor berdasarkan beberapa indikator metrik evaluasi, dapat mengakses link colab https://colab.research.google.com/drive/1WdUZnnte4xU6r6wyZA4vmM7bxDfrRW9L#scrollTo=Z0MiBYvGIAVt
+Untuk hasil yang lebih lengkap terkait evaluasi skor berdasarkan beberapa indikator metrik evaluasi, dapat mengakses link colab https://colab.research.google.com/drive/1WdUZnnte4xU6r6wyZA4vmM7bxDfrRW9L?usp=sharing
 
 
 ## How to
