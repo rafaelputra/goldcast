@@ -10,7 +10,7 @@ import joblib
 
 model_rfr = joblib.load("train/models/rfr.pkl")
 
-with open("train/models/model_xgb.pkl", "rb") as f:
+with open("train/models/xgb.pkl", "rb") as f:
     model_xgb = pickle.load(f)
 
 def prediksi_harga_emas_lengkap(model, input_fitur, harga_emas_hari_ini):
