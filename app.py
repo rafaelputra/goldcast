@@ -50,14 +50,14 @@ with col2:
         st.subheader("Hasil XGBoost :chart_with_upwards_trend:", divider="red")
         prediction_xgb = model_xgb.predict(features)
         _, status, selisih = prediksi_harga_emas_lengkap(model_xgb, features[0], gld)
-        rows.write(f"Prediksi harga emas besok dengan XGBoost: **{prediction_xgb[0]:.2f} USD**")
-        rows.write(f"**Status**: {status} sebesar **{selisih:.2f} USD** dibanding harga saat ini **{gld:.2f} USD**\n")
+        st.markdown(f"Prediksi harga emas besok dengan XGBoost: **{prediction_xgb[0]:.2f} USD**")
+        st.markdown(f"**Status**: {status} sebesar **{selisih:.2f} USD** dibanding harga saat ini **{gld:.2f} USD**\n")
 
         st.subheader("Visualisasi :bar_chart:", divider="green")
         fig = go.Figure(data=[
-            go.Bar(name='Harga Hari Ini', x=['Harga'], y=[harga_emas_hari_ini], marker_color='gray'),
-            go.Bar(name='Random Forest', x=['Harga'], y=[pred_rf], marker_color='forestgreen'),
-            go.Bar(name='XGBoost', x=['Harga'], y=[pred_xgb], marker_color='orange'),
+            go.Bar(name='Harga Hari Ini', x=['Harga'], y=[gld], marker_color='gray'),
+            go.Bar(name='Random Forest', x=['Harga'], y=[prediction_rfr[0]], marker_color='forestgreen'),
+            go.Bar(name='XGBoost', x=['Harga'], y=[prediction_xgb[0]], marker_color='orange'),
         ])
 
         fig.update_layout(
