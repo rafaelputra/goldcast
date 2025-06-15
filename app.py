@@ -9,7 +9,9 @@ from sklearn.ensemble import RandomForestRegressor
 import joblib
 
 model_rfr = joblib.load("train/models/rfr.pkl")
-model_xgb = joblib.load("train/models/xgb.pkl")
+
+with open("train/models/model_xgb.pkl", "rb") as f:
+    model_xgb = pickle.load(f)
 
 def prediksi_harga_emas_lengkap(model, input_fitur, harga_emas_hari_ini):
     fitur = ['SPX', 'USO', 'SLV', 'EUR/USD', 'GLD', 'GLD_t-1']
@@ -42,7 +44,7 @@ with col2:
         rows.write(f"Prediksi harga emas dengan Random Forest Regression: {prediction_rfr[0]:.2f} USD")
         _, status, selisih = prediksi_harga_emas_lengkap(model_rfr, features[0], gld)
         rows.write(f"Status: {status} sebesar {selisih:.2f} USD dibanding harga saat ini {gld:.2f} USD\n")
-        # prediction_xgb = model_xgb.predict(features)
-        # _, status, selisih = prediksi_harga_emas_lengkap(model_xgb, features[0], gld)
-        # rows.write(f"Prediksi harga emas dengan XGBoost: {prediction_xgb[0]:.2f} USD")
-        # rows.write(f"Status: {status} sebesar {selisih:.2f} USD dibanding harga saat ini {gld:.2f} USD\n")
+        prediction_xgb = model_xgb.predict(features)
+        _, status, selisih = prediksi_harga_emas_lengkap(model_xgb, features[0], gld)
+        rows.write(f"Prediksi harga emas dengan XGBoost: {prediction_xgb[0]:.2f} USD")
+        rows.write(f"Status: {status} sebesar {selisih:.2f} USD dibanding harga saat ini {gld:.2f} USD\n")
